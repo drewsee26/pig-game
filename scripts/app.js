@@ -28,8 +28,8 @@ document.querySelector('.btn-roll').addEventListener('click', function() {
         var diceTwoDOM = document.querySelector('.dice-2')
         diceOneDOM.style.display = 'block'
         diceTwoDOM.style.display = 'block'
-        diceOneDOM.src = 'dice-' + diceOne + '.png'
-        diceTwoDOM.src = 'dice-' + diceTwo + '.png'
+        diceOneDOM.src = '../assets/images/dice-' + diceOne + '.png'
+        diceTwoDOM.src = '../assets/images/dice-' + diceTwo + '.png'
 
         // 3. Update the round score IF the rolled number is NOT a 1
         if (diceOne !== 1 && diceTwo !== 1) {
@@ -54,11 +54,12 @@ document.querySelector('.btn-hold').addEventListener('click', function(){
         if (scores[activePlayer] >= gameScore) {
             document.querySelector('#name-' + activePlayer).textContent = 'Winner!'
 
-            document.querySelector('.dice').style.display = 'none'
+            document.querySelector('.dice-1').style.display = 'none'
+            document.querySelector('.dice-2').style.display = 'none'
             document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner')
             document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active')
-
             gamePlaying = false
+
         } else {
             nextPlayer()
         }
@@ -97,7 +98,6 @@ function init() {
 
     document.querySelector('.dice-1').style.display = 'none'
     document.querySelector('.dice-2').style.display = 'none'
-
     document.getElementById('score-0').textContent = '0'
     document.getElementById('score-1').textContent = '0'
     document.getElementById('current-0').textContent = '0'
